@@ -26,7 +26,7 @@ case "$AUTOBUILD_PLATFORM" in
     "windows")
         build_sln "glodlib.sln" "Debug|Default"
         build_sln "glodlib.sln" "Release|Default"
-		mkdir -p stage/lib/{debug,release}
+        mkdir -p stage/lib/{debug,release}
         cp "lib/debug/glod.lib" \
             "stage/lib/debug/glod.lib"
         cp "lib/debug/glod.dll" \
@@ -53,22 +53,36 @@ case "$AUTOBUILD_PLATFORM" in
 				"$libdir/release/libGLOD.dylib"
 		;;
         "linux")
-			libdir="$top/stage/lib"
-            mkdir -p "$libdir"/{debug,release}
+	  		prefix="$top/stage/libraries/i686-linux"
+			mkdir -p "$prefix/include/glod"
+			cp "include/glod.h" "$prefix/include/glod"
+			libdir="$prefix/lib"
+			mkdir -p "$libdir"/{debug,release}
 			export CFLAGS=-m32
 			export LFLAGS=-m32
 			make -C src clean
 			make -C src debug
-			cp "lib/libGLOD.so" \
-				"$libdir/debug/libGLOD.so"
+			cp "lib/libGLOD.so" "$libdir/debug/libGLOD.so"
 			make -C src clean
 			make -C src release
-			cp "lib/libGLOD.so" \
-				"$libdir/release/libGLOD.so"
+			cp "lib/libGLOD.so" "$libdir/release/libGLOD.so"
+        ;;
+        "linux64")
+	  		prefix="$top/stage/libraries/x86_64-linux"
+			mkdir -p "$prefix/include/glod"
+			cp "include/glod.h" "$prefix/include/glod"
+			libdir="$prefix/lib"
+			mkdir -p "$libdir"/{debug,release}
+			export CFLAGS=-m64
+			export LFLAGS=-m64
+			make -C src clean
+			make -C src debug
+			cp "lib/libGLOD.so" "$libdir/debug/libGLOD.so"
+			make -C src clean
+			make -C src release
+			cp "lib/libGLOD.so" "$libdir/release/libGLOD.so"
         ;;
 esac
-mkdir -p "stage/include/glod"
-cp "include/glod.h" "stage/include/glod/glod.h"
 mkdir -p stage/LICENSES
 cp LICENSE stage/LICENSES/GLOD.txt
 

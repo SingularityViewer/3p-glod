@@ -32,7 +32,6 @@
           </map>
           <key>manifest</key>
           <array>
-            <string>include/glod/*.h</string>
             <string>LICENSES/GLOD.txt</string>
           </array>
           <key>name</key>
@@ -88,11 +87,38 @@
           </map>
           <key>manifest</key>
           <array>
-            <string>lib/debug/*.so</string>
-            <string>lib/release/*.so</string>
+            <string>libraries/i686-linux/lib/debug/libGLOD.so</string>
+            <string>libraries/i686-linux/lib/release/libGLOD.so</string>
+            <string>libraries/i686-linux/include/glod/glod.h</string>
           </array>
           <key>name</key>
           <string>linux</string>
+        </map>
+        <key>linux64</key>
+        <map>
+          <key>build_directory</key>
+          <string>stage</string>
+          <key>configurations</key>
+          <map>
+            <key>RelWithDebInfo</key>
+            <map>
+              <key>build</key>
+              <map>
+              </map>
+              <key>default</key>
+              <boolean>true</boolean>
+              <key>name</key>
+              <string>RelWithDebInfo</string>
+            </map>
+          </map>
+          <key>manifest</key>
+          <array>
+            <string>libraries/x86_64-linux/lib/debug/libGLOD.so</string>
+            <string>libraries/x86_64-linux/lib/release/libGLOD.so</string>
+            <string>libraries/x86_64-linux/include/glod/glod.h</string>
+          </array>
+          <key>name</key>
+          <string>linux64</string>
         </map>
         <key>windows</key>
         <map>
