@@ -212,7 +212,7 @@ typedef struct PlyModel
     bool       has_normalmap;
     
     int       texture_id;
-    char     *texture_name;
+    char const* texture_name;
     
     VertexArray  *varray;
     int           vamode;

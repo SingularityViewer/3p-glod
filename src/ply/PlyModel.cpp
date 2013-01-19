@@ -80,7 +80,7 @@
 
 
 /*------------------------ Local Function Prototypes ------------------------*/
-int LoadPPMTexture(char *);
+int LoadPPMTexture(char const*);
 void InitRegisterCombiners();
 
 /*---------------------------------Functions-------------------------------- */
@@ -255,7 +255,7 @@ void ComputeVertexRadii(PlyModel *model)
     return;
 }
 
-int LoadPPMTexture( char *filename )
+int LoadPPMTexture( char const* filename )
 {
     FILE *fp;
     int xsize, ysize, maxval, isize;
@@ -451,7 +451,7 @@ int LoadPPMTexture( char *filename )
           glDrawArrays(GL_TRIANGLES, 0, model->plist[patch].nindices);
   }
   
-  void SetupTexture(PlyModel *model, char* texture_name)
+  void SetupTexture(PlyModel *model, char const* texture_name)
   {
       glPixelStorei(GL_UNPACK_ALIGNMENT, 1);  // default is 4
       glPixelStorei(GL_PACK_ALIGNMENT, 1);    // default is 4

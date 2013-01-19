@@ -95,7 +95,7 @@ typedef struct plyBVNode
 /*------------------------------ Local Globals ------------------------------*/
 
 static
-char *elem_names[] = { /* list of the kinds of elements in the user's object */
+char const* elem_names[] = { /* list of the kinds of elements in the user's object */
     "mtinfo", "vertex", "face", "node", "arc", "point", "bvnode"
 };
 

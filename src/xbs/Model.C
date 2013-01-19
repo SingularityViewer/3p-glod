@@ -89,7 +89,7 @@ typedef struct plyFace
 
 // PLY reading and writing stuff...
 static
-char *elem_names[] = { /* list of the kinds of elements in the user's object */
+char const *elem_names[] = { /* list of the kinds of elements in the user's object */
     "vertex", "face" 
 };
 
