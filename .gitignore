@@ -1,0 +1,6 @@
+*.o
+stage
+glod-*.tar.bz2
+lib/libGLOD.so
+src/Makefile.depend
+src/vds/libvds.a

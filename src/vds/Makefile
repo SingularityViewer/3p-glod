@@ -12,9 +12,8 @@
 ##############################################################################
 LIBNAME=libvds.a
 
-CFLAGS=-m32 -g -DLinux -I/uf6/gfx/include -fno-stack-protector
-LFLAGS=-lGL -lpthread -L./   -lzt -fno-stack-protector
-#LFLAGS+=-L/usr/X11R6/lib/ -lglx -lX11
+CFLAGS=-g -fPIC -DLinux -fno-stack-protector
+LFLAGS=-lGL -lpthread -L./ -lzt -fno-stack-protector
 
 OBJ_SUFFIX=.o
 CODE_SUFFIX=.cpp
@@ -44,7 +43,7 @@ ifeq ($(strip $(shell uname -s)), Darwin)
 endif
 
 .cpp.o:
-	g++ -I/usr/X11R6/include -c -o $@ $(CFLAGS) $<
+	g++ -c -o $@ $(CFLAGS) $<
 
 clean:
 	rm -f $(OBJECTS) $(LIBNAME)
