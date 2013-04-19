@@ -83,7 +83,7 @@ void DiscreteHierarchy::SetVertIdx(int patchNum, xbsVertex* vert, int vertNum) {
             PatchVertPair** newAry = new PatchVertPair*[maxPatchPairs];
             for(int i = 0; i < nPatchPairs; i++)
                 newAry[i] = patchPairs[i];
-            delete patchPairs;
+            delete [] patchPairs;
             patchPairs = newAry;
         }
         patchPairs[this->nPatchPairs++] = p;
@@ -253,16 +253,16 @@ DiscreteLevel::DiscreteLevel(DiscreteHierarchy* hierarchy, Model *model)
                     vertIDs[tri->verts[2]->index];
             }
         }
-        delete patchVerts;
+        delete [] patchVerts;
         patchVerts = NULL;
     }
 
-    delete vertIDs;
-    delete vertIsInPatch;
-    delete patchNumTris;
+    delete [] vertIDs;
+    delete [] vertIsInPatch;
+    delete [] patchNumTris;
     for (int pnum=0; pnum<numPatches; pnum++)
-        delete patchTris[pnum];
-    delete patchTris;
+        delete [] patchTris[pnum];
+    delete [] patchTris;
     
     errorCenter = (v_max+v_min)*0.5;
     errorOffsets=v_max-errorCenter;
@@ -395,8 +395,8 @@ DiscreteHierarchy::initialize(GLOD_RawObject *raw) {
         tLODs[i]=LODs[i];
         tErrors[i]=errors[i];
     }
-    delete LODs;
-    delete errors;
+    delete [] LODs;
+    delete [] errors;
     errors=tErrors;
     LODs=tLODs;
     maxLODs=l;
@@ -575,9 +575,9 @@ DiscreteHierarchy::update(Model *model, Operation *op)
             newLODs[i] = LODs[i];
             newErrors[i] = errors[i];
         }
-        delete LODs;
+        delete [] LODs;
         LODs = newLODs;
-        delete errors;
+        delete [] errors;
         errors = newErrors;
 
         maxLODs *= 2;
@@ -619,9 +619,9 @@ DiscreteHierarchy::manualAddLevel(Model *model, unsigned int level, float geomet
             newLODs[i] = LODs[i];
             newErrors[i] = errors[i];
         }
-        delete LODs;
+        delete [] LODs;
         LODs = newLODs;
-        delete errors;
+        delete [] errors;
         errors = newErrors;
 
         maxLODs *= 2;

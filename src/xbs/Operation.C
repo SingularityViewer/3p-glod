@@ -1601,7 +1601,7 @@ Operation::updateModel(Model *model, Hierarchy *hierarchy,
         for (int opnum=0; opnum<(*numRemoveOps); opnum++)
             newRemoveOps[opnum] = (*removeOps)[opnum];
         newRemoveOps[(*numRemoveOps)++] = op;
-        delete (*removeOps);
+        delete [] (*removeOps);
         (*removeOps) = newRemoveOps;
     }
     
@@ -1742,7 +1742,7 @@ Operation::updateModel(Model *model, Hierarchy *hierarchy,
                             for (int opnum2=0; opnum2<(*numModOps); opnum2++)
                                 newModOps[opnum2] = (*modOps)[opnum2];
                             newModOps[(*numModOps)++] = op;
-                            delete (*modOps);
+                            delete [] (*modOps);
                             (*modOps) = newModOps;
 #endif
                         }
@@ -2542,7 +2542,7 @@ EdgeCollapse::updateModel(Model *model, Hierarchy *hierarchy,
         for (int opnum=0; opnum<(*numRemoveOps); opnum++)
             newRemoveOps[opnum] = (*removeOps)[opnum];
         newRemoveOps[(*numRemoveOps)++] = op;
-        delete (*removeOps);
+        delete [] (*removeOps);
         (*removeOps) = newRemoveOps;
     }
     
@@ -2671,7 +2671,7 @@ EdgeCollapse::updateModel(Model *model, Hierarchy *hierarchy,
                             for (int opnum2=0; opnum2<(*numModOps); opnum2++)
                                 newModOps[opnum2] = (*modOps)[opnum2];
                             newModOps[(*numModOps)++] = op;
-                            delete (*modOps);
+                            delete [] (*modOps);
                             (*modOps) = newModOps;
 #endif
                         }

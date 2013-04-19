@@ -243,7 +243,7 @@ class MultiGrid
                 delete levels[i];
                 levels[i] = NULL;
             }
-            delete levels;
+            delete [] levels;
             levels = NULL;
         }
         PointSet& getCell(mtVec3 point);

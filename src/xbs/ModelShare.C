@@ -113,7 +113,7 @@ Model::share(float coord_tolerance)
         delete vlist[i];
         vlist[i] = NULL;
     }
-    delete vlist;
+    delete [] vlist;
     vlist = NULL;
     
     

@@ -153,12 +153,12 @@ class DiscreteHierarchy : public Hierarchy
             }
             if (LODs != NULL)
             {
-                delete LODs;
+                delete [] LODs;
                 LODs = NULL;
             }
             if (errors != NULL)
             {
-                delete errors;
+                delete [] errors;
                 errors = NULL;
             }
             

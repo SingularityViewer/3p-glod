@@ -117,7 +117,7 @@ public:
                 delete objects[i];
                 objects[i] = NULL;
             }
-            delete [] objects;
+            delete objects;
             objects = NULL;
         }
         numObjects = maxObjects = 0;

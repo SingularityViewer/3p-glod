@@ -636,7 +636,7 @@ class xbsVertex
             xbsTriangle **newTris = new xbsTriangle *[count];
             for (int i=0; i<numTris; i++)
                 newTris[i] = tris[i];
-            delete tris;
+            delete [] tris;
             tris = newTris;
         }
         void freeTris()

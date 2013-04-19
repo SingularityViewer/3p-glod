@@ -158,7 +158,7 @@ xbsVertex::~xbsVertex()
 {
     if (tris != NULL)
     {
-        delete tris;
+        delete [] tris;
         tris = NULL;
         numTris = 0;
     }
@@ -842,20 +842,20 @@ Model::~Model()
 {
     for (int vnum=0; vnum<numVerts; vnum++)
         delete verts[vnum];
-    delete verts;
+    delete [] verts;
     verts = NULL;
     for (int tnum=0; tnum<numTris; tnum++)
         delete tris[tnum];
 
-    delete tris;
+    delete [] tris;
     tris = NULL;
     if (other_elems != NULL)
         free(other_elems);
             
-    delete snapshotTriSpecs;
+    delete [] snapshotTriSpecs;
     snapshotTriSpecs = NULL;
 
-    delete snapshotErrorSpecs;
+    delete [] snapshotErrorSpecs;
     snapshotErrorSpecs = NULL;
     if (permissionGrid)
         delete permissionGrid;
@@ -1152,7 +1152,7 @@ Model::addTri(xbsTriangle *tri)
             xbsTriangle **newtris = new xbsTriangle *[maxTris*2];
             for (int i=0; i<numTris; i++)
                 newtris[i] = tris[i];
-            delete tris;
+            delete [] tris;
             tris = newtris;
             maxTris *= 2;
         }
@@ -1201,7 +1201,7 @@ Model::removeVert(xbsVertex *vert)
         xbsVertex **newverts = new xbsVertex *[maxVerts/2];
         for (int i=0; i<numVerts; i++)
             newverts[i] = verts[i];
-        delete verts;
+        delete [] verts;
         verts = newverts;
         maxVerts /= 2;
     }
@@ -1246,7 +1246,7 @@ Model::removeTri(xbsTriangle *tri)
         xbsTriangle **newtris = new xbsTriangle *[maxTris/2];
         for (int i=0; i<numTris; i++)
             newtris[i] = tris[i];
-        delete tris;
+        delete [] tris;
         tris = newtris;
         maxTris /= 2;
     }

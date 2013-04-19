@@ -129,7 +129,7 @@ class Heap
                 array[i]->_heap = NULL;
                 array[i]->index = -1;
             }
-            delete array;
+            delete [] array;
             maxSize = 0;
             _size = 0;
         }

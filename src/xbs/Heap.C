@@ -85,7 +85,7 @@ Heap::insert(HeapElement *element)
         HeapElement **newArray = new HeapElement *[maxSize*2];
         for (j=0; j<_size; j++)
             newArray[j] = array[j];
-        delete array;
+        delete [] array;
         array = newArray;
         maxSize = maxSize * 2;
     }

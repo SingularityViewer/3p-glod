@@ -226,7 +226,7 @@ PointSet::maxMinDistOneSided(PointSet& ps)
         if (minSqDist > maxMinSqDist)
             maxMinSqDist = minSqDist;
 
-        delete sets;
+        delete [] sets;
     }
     
 #endif
