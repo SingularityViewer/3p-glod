@@ -23,9 +23,14 @@ set -x
 
 top="$(pwd)"
 case "$AUTOBUILD_PLATFORM" in
-    "windows")
-        build_sln "glodlib.sln" "Debug|Default"
-        build_sln "glodlib.sln" "Release|Default"
+    windows*)
+        if [ "$AUTOBUILD_PLATFORM" == "windows64" ]; then
+            build_target="x64"
+        else
+            build_target="Win32"
+        fi
+        build_sln "glodlib.sln" "Debug|$build_target"
+        build_sln "glodlib.sln" "Release|$build_target"
         mkdir -p stage/lib/{debug,release}
         cp "lib/debug/glod.lib" \
             "stage/lib/debug/glod.lib"
@@ -37,6 +42,8 @@ case "$AUTOBUILD_PLATFORM" in
             "stage/lib/release/glod.lib"
         cp "lib/release/glod.dll" \
             "stage/lib/release/glod.dll"
+        mkdir -p "stage/include/glod"
+        cp "include/glod.h" "stage/include/glod"
     ;;
         "darwin")
 			libdir="$top/stage/lib"

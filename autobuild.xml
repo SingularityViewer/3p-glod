@@ -145,6 +145,7 @@
           </map>
           <key>manifest</key>
           <array>
+            <string>include/glod/glod.h</string>
             <string>lib/debug/*.lib</string>
             <string>lib/debug/*.dll</string>
             <string>lib/debug/*.pdb</string>
@@ -153,6 +154,41 @@
           </array>
           <key>name</key>
           <string>windows</string>
+        </map>
+        <key>windows64</key>
+        <map>
+          <key>build_directory</key>
+          <string>stage</string>
+          <key>configurations</key>
+          <map>
+            <key>RelWithDebInfo</key>
+            <map>
+              <key>build</key>
+              <map>
+                <key>arguments</key>
+                <array>
+                  <string>build-cmd.sh</string>
+                </array>
+                <key>command</key>
+                <string>bash</string>
+              </map>
+              <key>default</key>
+              <boolean>true</boolean>
+              <key>name</key>
+              <string>RelWithDebInfo</string>
+            </map>
+          </map>
+          <key>manifest</key>
+          <array>
+            <string>include/glod/glod.h</string>
+            <string>lib/debug/*.lib</string>
+            <string>lib/debug/*.dll</string>
+            <string>lib/debug/*.pdb</string>
+            <string>lib/release/*.lib</string>
+            <string>lib/release/*.dll</string>
+          </array>
+          <key>name</key>
+          <string>windows64</string>
         </map>
       </map>
       <key>source_directory</key>
