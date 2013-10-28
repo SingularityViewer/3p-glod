@@ -21,7 +21,7 @@
 
 /*----------------------------- Local Includes -----------------------------*/
 
-
+#define _ALLOW_KEYWORD_MACROS
 #include <stdio.h>
 #if defined(_WIN32) || defined(__APPLE__)
 #include <float.h>
